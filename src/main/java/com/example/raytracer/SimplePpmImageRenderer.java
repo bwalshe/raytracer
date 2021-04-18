@@ -12,7 +12,19 @@ import java.nio.file.StandardOpenOption;
 
 public class SimplePpmImageRenderer {
 
+    static boolean hitSphere(SpatialVec center, double radius, Ray r) {
+        SpatialVec oc = r.getOrigin().minus(center);
+        double a = SpatialVec.dot(r.getDirection(), r.getDirection());
+        double b = 2.0 * SpatialVec.dot(oc, r.getDirection());
+        double c = SpatialVec.dot(oc, oc) - radius * radius;
+        double discriminant = b * b - 4 * a * c;
+        return (discriminant > 0);
+    }
+
     static RgbVec rayColor(Ray r) {
+        if (hitSphere(new SpatialVec(0, 0, -1), 0.5, r)) {
+            return new RgbVec(1.0, 0.0, 0.0);
+        }
         SpatialVec unitDirection = r.getDirection().unit();
         double t = 0.5 * (unitDirection.y() + 1.0);
         return new RgbVec(1.0, 1.0, 1.0)
