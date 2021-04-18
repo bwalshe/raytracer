@@ -1,6 +1,7 @@
 package com.example.raytracer;
 
 import com.example.raytracer.vector.RgbVec;
+import com.example.raytracer.vector.SpatialVec;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -11,21 +12,45 @@ import java.nio.file.StandardOpenOption;
 
 public class SimplePpmImageRenderer {
 
+    static RgbVec rayColor(Ray r) {
+        SpatialVec unitDirection = r.getDirection().unit();
+        double t = 0.5 * (unitDirection.y() + 1.0);
+        return new RgbVec(1.0, 1.0, 1.0)
+                .multiply(1.0 - t)
+                .add(new RgbVec(0.5, 0.7, 1.0)
+                        .multiply(t));
+    }
+
     public static void main(String[] args) throws IOException {
-        int imageWidth = 256;
-        int imageHeight = 256;
+        double aspectRatio = 16.0 / 9.0;
+        int imageWidth = 400;
+        int imageHeight = (int) (imageWidth / aspectRatio);
+
+        double viewport_height = 2.0;
+        double viewportWidth = aspectRatio * viewport_height;
+        double focalLength = 1.0;
+
+        SpatialVec origin = SpatialVec.origin();
+        SpatialVec horizontal = new SpatialVec(viewportWidth, 0, 0);
+        SpatialVec vertical = new SpatialVec(0, viewport_height, 0);
+        SpatialVec lowerLeftCorner = origin.minus(horizontal.divide(2))
+                .minus(vertical.divide(2))
+                .minus(new SpatialVec(0, 0, focalLength));
 
         try (BufferedWriter writer = Files.newBufferedWriter(Paths.get("image.ppm"), StandardOpenOption.CREATE)) {
             writer.write(String.format("P3\n%d %d\n255\n", imageWidth, imageHeight));
             for (int j = imageHeight - 1; j >= 0; --j) {
                 System.out.printf("Scanlines remaining: %d\n", j);
                 for (int i = 0; i < imageWidth; ++i) {
-                    RgbVec color = new RgbVec(
-                            ((double) i) / (imageWidth - 1),
-                            ((double) j) / (imageHeight - 1),
-                            0.25
-                    );
-                    writer.write(color + "\n");
+                    double u = ((double) i) / (imageWidth - 1);
+                    double v = ((double) j) / (imageHeight - 1);
+                    SpatialVec direction = lowerLeftCorner
+                            .add(horizontal.multiply(u))
+                            .add(vertical.multiply(v))
+                            .minus(origin);
+                    Ray r = new Ray(origin, direction);
+                    RgbVec pixelColor = rayColor(r);
+                    writer.write(pixelColor + "\n");
                 }
             }
         }

@@ -18,6 +18,10 @@ public abstract class Vec3<T extends Vec3<T>> {
         );
     }
 
+    public T minus(T other) {
+        return add(other.multiply(-1));
+    }
+
     public T multiply(double magnitude) {
         return make(
                 _vec[0] * magnitude,
