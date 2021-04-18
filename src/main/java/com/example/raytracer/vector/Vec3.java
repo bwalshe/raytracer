@@ -50,11 +50,11 @@ public abstract class Vec3<T extends Vec3<T>> {
         return this.divide(this.length());
     }
 
-    double length() {
+    public double length() {
         return Math.sqrt(lengthSquared());
     }
 
-    double lengthSquared() {
+    public double lengthSquared() {
         return _vec[0] * _vec[0] + _vec[1] * _vec[1] + _vec[2] * _vec[2];
     }
 

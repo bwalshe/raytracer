@@ -12,21 +12,28 @@ import java.nio.file.StandardOpenOption;
 
 public class SimplePpmImageRenderer {
 
-    static boolean hitSphere(SpatialVec center, double radius, Ray r) {
+    static double hitSphere(SpatialVec center, double radius, Ray r) {
         SpatialVec oc = r.getOrigin().minus(center);
-        double a = SpatialVec.dot(r.getDirection(), r.getDirection());
-        double b = 2.0 * SpatialVec.dot(oc, r.getDirection());
-        double c = SpatialVec.dot(oc, oc) - radius * radius;
-        double discriminant = b * b - 4 * a * c;
-        return (discriminant > 0);
+        double a = r.getDirection().lengthSquared();
+        double halfB = SpatialVec.dot(oc, r.getDirection());
+        double c = oc.lengthSquared() - radius * radius;
+        double discriminant = halfB * halfB - a * c;
+        if(discriminant <= 0) {
+            return 0.0;
+        } else {
+            return (-halfB - Math.sqrt(discriminant)) / a;
+        }
     }
 
     static RgbVec rayColor(Ray r) {
-        if (hitSphere(new SpatialVec(0, 0, -1), 0.5, r)) {
-            return new RgbVec(1.0, 0.0, 0.0);
+        SpatialVec sphereCenter = new SpatialVec(0, 0,-1);
+        double t = hitSphere(sphereCenter, 0.5, r);
+        if (t > 0.0) {
+            SpatialVec surfaceNormal = r.at(t).minus(sphereCenter);
+            return new RgbVec(surfaceNormal.x()+1, surfaceNormal.y()+1, surfaceNormal.z()+1).multiply(0.5);
         }
         SpatialVec unitDirection = r.getDirection().unit();
-        double t = 0.5 * (unitDirection.y() + 1.0);
+        t = 0.5 * (unitDirection.y() + 1.0);
         return new RgbVec(1.0, 1.0, 1.0)
                 .multiply(1.0 - t)
                 .add(new RgbVec(0.5, 0.7, 1.0)
@@ -38,13 +45,13 @@ public class SimplePpmImageRenderer {
         int imageWidth = 400;
         int imageHeight = (int) (imageWidth / aspectRatio);
 
-        double viewport_height = 2.0;
-        double viewportWidth = aspectRatio * viewport_height;
+        double viewportHeight = 2.0;
+        double viewportWidth = aspectRatio * viewportHeight;
         double focalLength = 1.0;
 
         SpatialVec origin = SpatialVec.origin();
         SpatialVec horizontal = new SpatialVec(viewportWidth, 0, 0);
-        SpatialVec vertical = new SpatialVec(0, viewport_height, 0);
+        SpatialVec vertical = new SpatialVec(0, viewportHeight, 0);
         SpatialVec lowerLeftCorner = origin.minus(horizontal.divide(2))
                 .minus(vertical.divide(2))
                 .minus(new SpatialVec(0, 0, focalLength));
