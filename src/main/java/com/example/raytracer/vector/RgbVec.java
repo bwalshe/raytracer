@@ -27,6 +27,13 @@ public final class RgbVec extends Vec3<RgbVec> {
 
     @Override
     public String toString() {
-        return String.format("%f %f %f", SCALE * r(), SCALE * g(), SCALE * b());
+        return String.format("%f %f %f", scale(r()), scale(g()), scale(b()));
+    }
+
+    private static double scale(double x) {
+        double scaled = x * SCALE;
+        if(scaled > SCALE) return SCALE;
+        if(scaled < 0) return 0;
+        return scaled;
     }
 }

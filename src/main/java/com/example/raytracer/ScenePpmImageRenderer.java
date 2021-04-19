@@ -12,6 +12,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.List;
+import java.util.Random;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -41,17 +42,12 @@ public class ScenePpmImageRenderer {
         double aspectRatio = 16.0 / 9.0;
         int imageWidth = 800;
         int imageHeight = (int) (imageWidth / aspectRatio);
+        int samplesPerPixel = 100;
+        Random random = new Random();
 
-        double viewportHeight = 2.0;
-        double viewportWidth = aspectRatio * viewportHeight;
-        double focalLength = 1.0;
-
-        SpatialVec origin = SpatialVec.origin();
-        SpatialVec horizontal = new SpatialVec(viewportWidth, 0, 0);
-        SpatialVec vertical = new SpatialVec(0, viewportHeight, 0);
-        SpatialVec lowerLeftCorner = origin.minus(horizontal.divide(2))
-                .minus(vertical.divide(2))
-                .minus(new SpatialVec(0, 0, focalLength));
+        Camera camera = Camera.builder()
+                .aspectRatio(aspectRatio)
+                .build();
 
         List<Hittable> world = List.of(
                 new Sphere(new SpatialVec(0, 0, -1), 0.5),
@@ -63,15 +59,14 @@ public class ScenePpmImageRenderer {
             for (int j = imageHeight - 1; j >= 0; --j) {
                 logger.info("Scanlines remaining: " + j);
                 for (int i = 0; i < imageWidth; ++i) {
-                    double u = ((double) i) / (imageWidth - 1);
-                    double v = ((double) j) / (imageHeight - 1);
-                    SpatialVec direction = lowerLeftCorner
-                            .add(horizontal.multiply(u))
-                            .add(vertical.multiply(v))
-                            .minus(origin);
-                    Ray r = new Ray(origin, direction);
-                    RgbVec pixelColor = rayColor(r, world);
-                    writer.write(pixelColor + "\n");
+                    RgbVec pixelColor = new RgbVec(0,0,0);
+                    for(int s=0; s < samplesPerPixel; ++s) {
+                        double u = (i + 2 * random.nextDouble() - 1) / (imageWidth - 1);
+                        double v = (j + 2 * random.nextDouble() - 1) / (imageHeight - 1);
+                        Ray r = camera.getRay(u, v);
+                        pixelColor = pixelColor.add(rayColor(r, world));
+                    }
+                    writer.write(pixelColor.divide(samplesPerPixel) + "\n");
                 }
             }
         }
