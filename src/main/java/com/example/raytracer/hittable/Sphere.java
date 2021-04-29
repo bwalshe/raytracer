@@ -10,9 +10,10 @@ public class Sphere implements Hittable {
     private final double _radius;
 
     public Sphere(SpatialVec center, double radius) {
-        _center = center;
-        _radius = radius;
+        this._center = center;
+        this._radius = radius;
     }
+
 
     public Optional<HitRecord> hit(Ray r, double tMin, double tMax) {
         SpatialVec oc = r.getOrigin().minus(_center);

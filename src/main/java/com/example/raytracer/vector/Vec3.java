@@ -58,6 +58,9 @@ public abstract class Vec3<T extends Vec3<T>> {
         return _vec[0] * _vec[0] + _vec[1] * _vec[1] + _vec[2] * _vec[2];
     }
 
+    public T sqrt() {
+        return make(Math.sqrt(_vec[0]), Math.sqrt(_vec[1]), Math.sqrt(_vec[2]));
+    }
     public static <U extends Vec3<U>> double dot(U a, U b) {
         return a._vec[0] * b._vec[0]
                 + a._vec[1] * b._vec[1]
@@ -67,4 +70,5 @@ public abstract class Vec3<T extends Vec3<T>> {
     public static <U extends Vec3<U>> double distance(U a, U b) {
         return a.add(b.multiply(-1)).length();
     }
+
 }
