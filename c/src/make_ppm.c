@@ -13,7 +13,7 @@ int main() {
 
       int ir = (int)255.999 * r;
       int ig = (int)255.999 * g;
-      int ib = (ir + ig) % 256;
+      int ib = (int)255.999 * b;
       printf("%d %d %d\n", ir, ig, ib);
     }
   }
