@@ -1,5 +1,5 @@
 #include <math.h>
-#include <vec3.h>
+#include "vec3.h"
 
 double dot(vec3 *u, vec3 *v) { 
   return u->x * v->x + 
@@ -12,8 +12,17 @@ vec3 add(vec3 *u, vec3 *v) {
   return new_vec;
 }
 
+vec3 sub(vec3 *u, vec3 *v) {
+  return (vec3) {u->x - v->x, u->y - v->y, u->z - v->z};
+}
+
 vec3 mul(vec3 *v, double c) {
   vec3 new_vec = {v->x * c, v->y * c, v->z * c};
+  return new_vec;
+}
+
+vec3 div_vec(vec3 *v, double c) {
+  vec3 new_vec = {v->x / c, v->y / c, v->z / c};
   return new_vec;
 }
 
@@ -33,4 +42,8 @@ double length_sq(vec3 *v) {
 
 double length(vec3 *v) {
   return sqrt(length_sq(v));
+}
+
+vec3 unit_vec(vec3 *v) {
+  return div_vec(v, length(v));
 }
