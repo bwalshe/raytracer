@@ -1,169 +1,181 @@
 [
 {
   "directory": "/home/brian/github/raytracer/c/build",
-  "command": "/usr/bin/cc    -o CMakeFiles/make_ppm.dir/src/make_ppm.c.o -c /home/brian/github/raytracer/c/src/make_ppm.c",
+  "command": "/usr/bin/cc   -g -o CMakeFiles/make_ppm.dir/src/make_ppm.c.o -c /home/brian/github/raytracer/c/src/make_ppm.c",
   "file": "/home/brian/github/raytracer/c/src/make_ppm.c",
   "output": "CMakeFiles/make_ppm.dir/src/make_ppm.c.o"
 },
 {
   "directory": "/home/brian/github/raytracer/c/build",
-  "command": "/usr/bin/cc  -I/home/brian/github/raytracer/c/include -I/home/brian/github/raytracer/c/cunit/CUnit  -o CMakeFiles/test_vec3.dir/tests/test_vec3.c.o -c /home/brian/github/raytracer/c/tests/test_vec3.c",
+  "command": "/usr/bin/cc   -g -o CMakeFiles/make_ppm.dir/src/vec3.c.o -c /home/brian/github/raytracer/c/src/vec3.c",
+  "file": "/home/brian/github/raytracer/c/src/vec3.c",
+  "output": "CMakeFiles/make_ppm.dir/src/vec3.c.o"
+},
+{
+  "directory": "/home/brian/github/raytracer/c/build",
+  "command": "/usr/bin/cc   -g -o CMakeFiles/make_ppm.dir/src/color.c.o -c /home/brian/github/raytracer/c/src/color.c",
+  "file": "/home/brian/github/raytracer/c/src/color.c",
+  "output": "CMakeFiles/make_ppm.dir/src/color.c.o"
+},
+{
+  "directory": "/home/brian/github/raytracer/c/build",
+  "command": "/usr/bin/cc  -I/home/brian/github/raytracer/c/src -I/home/brian/github/raytracer/c/cunit/CUnit -g -o CMakeFiles/test_vec3.dir/tests/test_vec3.c.o -c /home/brian/github/raytracer/c/tests/test_vec3.c",
   "file": "/home/brian/github/raytracer/c/tests/test_vec3.c",
   "output": "CMakeFiles/test_vec3.dir/tests/test_vec3.c.o"
 },
 {
   "directory": "/home/brian/github/raytracer/c/build",
-  "command": "/usr/bin/cc  -I/home/brian/github/raytracer/c/include -I/home/brian/github/raytracer/c/cunit/CUnit  -o CMakeFiles/test_vec3.dir/src/vec3.c.o -c /home/brian/github/raytracer/c/src/vec3.c",
+  "command": "/usr/bin/cc  -I/home/brian/github/raytracer/c/src -I/home/brian/github/raytracer/c/cunit/CUnit -g -o CMakeFiles/test_vec3.dir/src/vec3.c.o -c /home/brian/github/raytracer/c/src/vec3.c",
   "file": "/home/brian/github/raytracer/c/src/vec3.c",
   "output": "CMakeFiles/test_vec3.dir/src/vec3.c.o"
 },
 {
   "directory": "/home/brian/github/raytracer/c/build/cunit/CUnit",
-  "command": "/usr/bin/cc  -I/home/brian/github/raytracer/c/cunit/CUnit  -Wall -Werror -Werror=strict-prototypes -o CMakeFiles/cunit.dir/Sources/Basic/Basic.c.o -c /home/brian/github/raytracer/c/cunit/CUnit/Sources/Basic/Basic.c",
+  "command": "/usr/bin/cc  -I/home/brian/github/raytracer/c/cunit/CUnit  -Wall -Werror -Werror=strict-prototypes -g -o CMakeFiles/cunit.dir/Sources/Basic/Basic.c.o -c /home/brian/github/raytracer/c/cunit/CUnit/Sources/Basic/Basic.c",
   "file": "/home/brian/github/raytracer/c/cunit/CUnit/Sources/Basic/Basic.c",
   "output": "cunit/CUnit/CMakeFiles/cunit.dir/Sources/Basic/Basic.c.o"
 },
 {
   "directory": "/home/brian/github/raytracer/c/build/cunit/CUnit",
-  "command": "/usr/bin/cc  -I/home/brian/github/raytracer/c/cunit/CUnit  -Wall -Werror -Werror=strict-prototypes -o CMakeFiles/cunit.dir/Sources/Automated/Automated.c.o -c /home/brian/github/raytracer/c/cunit/CUnit/Sources/Automated/Automated.c",
+  "command": "/usr/bin/cc  -I/home/brian/github/raytracer/c/cunit/CUnit  -Wall -Werror -Werror=strict-prototypes -g -o CMakeFiles/cunit.dir/Sources/Automated/Automated.c.o -c /home/brian/github/raytracer/c/cunit/CUnit/Sources/Automated/Automated.c",
   "file": "/home/brian/github/raytracer/c/cunit/CUnit/Sources/Automated/Automated.c",
   "output": "cunit/CUnit/CMakeFiles/cunit.dir/Sources/Automated/Automated.c.o"
 },
 {
   "directory": "/home/brian/github/raytracer/c/build/cunit/CUnit",
-  "command": "/usr/bin/cc  -I/home/brian/github/raytracer/c/cunit/CUnit  -Wall -Werror -Werror=strict-prototypes -o CMakeFiles/cunit.dir/Sources/Automated/AutomatedJUnitXml.c.o -c /home/brian/github/raytracer/c/cunit/CUnit/Sources/Automated/AutomatedJUnitXml.c",
+  "command": "/usr/bin/cc  -I/home/brian/github/raytracer/c/cunit/CUnit  -Wall -Werror -Werror=strict-prototypes -g -o CMakeFiles/cunit.dir/Sources/Automated/AutomatedJUnitXml.c.o -c /home/brian/github/raytracer/c/cunit/CUnit/Sources/Automated/AutomatedJUnitXml.c",
   "file": "/home/brian/github/raytracer/c/cunit/CUnit/Sources/Automated/AutomatedJUnitXml.c",
   "output": "cunit/CUnit/CMakeFiles/cunit.dir/Sources/Automated/AutomatedJUnitXml.c.o"
 },
 {
   "directory": "/home/brian/github/raytracer/c/build/cunit/CUnit",
-  "command": "/usr/bin/cc  -I/home/brian/github/raytracer/c/cunit/CUnit  -Wall -Werror -Werror=strict-prototypes -o CMakeFiles/cunit.dir/Sources/CI/CUnitCI.c.o -c /home/brian/github/raytracer/c/cunit/CUnit/Sources/CI/CUnitCI.c",
+  "command": "/usr/bin/cc  -I/home/brian/github/raytracer/c/cunit/CUnit  -Wall -Werror -Werror=strict-prototypes -g -o CMakeFiles/cunit.dir/Sources/CI/CUnitCI.c.o -c /home/brian/github/raytracer/c/cunit/CUnit/Sources/CI/CUnitCI.c",
   "file": "/home/brian/github/raytracer/c/cunit/CUnit/Sources/CI/CUnitCI.c",
   "output": "cunit/CUnit/CMakeFiles/cunit.dir/Sources/CI/CUnitCI.c.o"
 },
 {
   "directory": "/home/brian/github/raytracer/c/build/cunit/CUnit",
-  "command": "/usr/bin/cc  -I/home/brian/github/raytracer/c/cunit/CUnit  -Wall -Werror -Werror=strict-prototypes -o CMakeFiles/cunit.dir/Sources/Framework/CUError.c.o -c /home/brian/github/raytracer/c/cunit/CUnit/Sources/Framework/CUError.c",
+  "command": "/usr/bin/cc  -I/home/brian/github/raytracer/c/cunit/CUnit  -Wall -Werror -Werror=strict-prototypes -g -o CMakeFiles/cunit.dir/Sources/Framework/CUError.c.o -c /home/brian/github/raytracer/c/cunit/CUnit/Sources/Framework/CUError.c",
   "file": "/home/brian/github/raytracer/c/cunit/CUnit/Sources/Framework/CUError.c",
   "output": "cunit/CUnit/CMakeFiles/cunit.dir/Sources/Framework/CUError.c.o"
 },
 {
   "directory": "/home/brian/github/raytracer/c/build/cunit/CUnit",
-  "command": "/usr/bin/cc  -I/home/brian/github/raytracer/c/cunit/CUnit  -Wall -Werror -Werror=strict-prototypes -o CMakeFiles/cunit.dir/Sources/Framework/MessageHandlers.c.o -c /home/brian/github/raytracer/c/cunit/CUnit/Sources/Framework/MessageHandlers.c",
+  "command": "/usr/bin/cc  -I/home/brian/github/raytracer/c/cunit/CUnit  -Wall -Werror -Werror=strict-prototypes -g -o CMakeFiles/cunit.dir/Sources/Framework/MessageHandlers.c.o -c /home/brian/github/raytracer/c/cunit/CUnit/Sources/Framework/MessageHandlers.c",
   "file": "/home/brian/github/raytracer/c/cunit/CUnit/Sources/Framework/MessageHandlers.c",
   "output": "cunit/CUnit/CMakeFiles/cunit.dir/Sources/Framework/MessageHandlers.c.o"
 },
 {
   "directory": "/home/brian/github/raytracer/c/build/cunit/CUnit",
-  "command": "/usr/bin/cc  -I/home/brian/github/raytracer/c/cunit/CUnit  -Wall -Werror -Werror=strict-prototypes -o CMakeFiles/cunit.dir/Sources/Framework/MyMem.c.o -c /home/brian/github/raytracer/c/cunit/CUnit/Sources/Framework/MyMem.c",
+  "command": "/usr/bin/cc  -I/home/brian/github/raytracer/c/cunit/CUnit  -Wall -Werror -Werror=strict-prototypes -g -o CMakeFiles/cunit.dir/Sources/Framework/MyMem.c.o -c /home/brian/github/raytracer/c/cunit/CUnit/Sources/Framework/MyMem.c",
   "file": "/home/brian/github/raytracer/c/cunit/CUnit/Sources/Framework/MyMem.c",
   "output": "cunit/CUnit/CMakeFiles/cunit.dir/Sources/Framework/MyMem.c.o"
 },
 {
   "directory": "/home/brian/github/raytracer/c/build/cunit/CUnit",
-  "command": "/usr/bin/cc  -I/home/brian/github/raytracer/c/cunit/CUnit  -Wall -Werror -Werror=strict-prototypes -o CMakeFiles/cunit.dir/Sources/Framework/TestDB.c.o -c /home/brian/github/raytracer/c/cunit/CUnit/Sources/Framework/TestDB.c",
+  "command": "/usr/bin/cc  -I/home/brian/github/raytracer/c/cunit/CUnit  -Wall -Werror -Werror=strict-prototypes -g -o CMakeFiles/cunit.dir/Sources/Framework/TestDB.c.o -c /home/brian/github/raytracer/c/cunit/CUnit/Sources/Framework/TestDB.c",
   "file": "/home/brian/github/raytracer/c/cunit/CUnit/Sources/Framework/TestDB.c",
   "output": "cunit/CUnit/CMakeFiles/cunit.dir/Sources/Framework/TestDB.c.o"
 },
 {
   "directory": "/home/brian/github/raytracer/c/build/cunit/CUnit",
-  "command": "/usr/bin/cc  -I/home/brian/github/raytracer/c/cunit/CUnit  -Wall -Werror -Werror=strict-prototypes -o CMakeFiles/cunit.dir/Sources/Framework/TestFixture.c.o -c /home/brian/github/raytracer/c/cunit/CUnit/Sources/Framework/TestFixture.c",
+  "command": "/usr/bin/cc  -I/home/brian/github/raytracer/c/cunit/CUnit  -Wall -Werror -Werror=strict-prototypes -g -o CMakeFiles/cunit.dir/Sources/Framework/TestFixture.c.o -c /home/brian/github/raytracer/c/cunit/CUnit/Sources/Framework/TestFixture.c",
   "file": "/home/brian/github/raytracer/c/cunit/CUnit/Sources/Framework/TestFixture.c",
   "output": "cunit/CUnit/CMakeFiles/cunit.dir/Sources/Framework/TestFixture.c.o"
 },
 {
   "directory": "/home/brian/github/raytracer/c/build/cunit/CUnit",
-  "command": "/usr/bin/cc  -I/home/brian/github/raytracer/c/cunit/CUnit  -Wall -Werror -Werror=strict-prototypes -o CMakeFiles/cunit.dir/Sources/Framework/TestRun.c.o -c /home/brian/github/raytracer/c/cunit/CUnit/Sources/Framework/TestRun.c",
+  "command": "/usr/bin/cc  -I/home/brian/github/raytracer/c/cunit/CUnit  -Wall -Werror -Werror=strict-prototypes -g -o CMakeFiles/cunit.dir/Sources/Framework/TestRun.c.o -c /home/brian/github/raytracer/c/cunit/CUnit/Sources/Framework/TestRun.c",
   "file": "/home/brian/github/raytracer/c/cunit/CUnit/Sources/Framework/TestRun.c",
   "output": "cunit/CUnit/CMakeFiles/cunit.dir/Sources/Framework/TestRun.c.o"
 },
 {
   "directory": "/home/brian/github/raytracer/c/build/cunit/CUnit",
-  "command": "/usr/bin/cc  -I/home/brian/github/raytracer/c/cunit/CUnit  -Wall -Werror -Werror=strict-prototypes -o CMakeFiles/cunit.dir/Sources/Framework/Util.c.o -c /home/brian/github/raytracer/c/cunit/CUnit/Sources/Framework/Util.c",
+  "command": "/usr/bin/cc  -I/home/brian/github/raytracer/c/cunit/CUnit  -Wall -Werror -Werror=strict-prototypes -g -o CMakeFiles/cunit.dir/Sources/Framework/Util.c.o -c /home/brian/github/raytracer/c/cunit/CUnit/Sources/Framework/Util.c",
   "file": "/home/brian/github/raytracer/c/cunit/CUnit/Sources/Framework/Util.c",
   "output": "cunit/CUnit/CMakeFiles/cunit.dir/Sources/Framework/Util.c.o"
 },
 {
   "directory": "/home/brian/github/raytracer/c/build/cunit/CUnit",
-  "command": "/usr/bin/cc  -I/home/brian/github/raytracer/c/cunit/CUnit  -Wall -Werror -Werror=strict-prototypes -o CMakeFiles/cunit.dir/Sources/Console/Console.c.o -c /home/brian/github/raytracer/c/cunit/CUnit/Sources/Console/Console.c",
+  "command": "/usr/bin/cc  -I/home/brian/github/raytracer/c/cunit/CUnit  -Wall -Werror -Werror=strict-prototypes -g -o CMakeFiles/cunit.dir/Sources/Console/Console.c.o -c /home/brian/github/raytracer/c/cunit/CUnit/Sources/Console/Console.c",
   "file": "/home/brian/github/raytracer/c/cunit/CUnit/Sources/Console/Console.c",
   "output": "cunit/CUnit/CMakeFiles/cunit.dir/Sources/Console/Console.c.o"
 },
 {
   "directory": "/home/brian/github/raytracer/c/build/cunit/CUnit",
-  "command": "/usr/bin/cc -DCUNIT_BUILD_TESTS -DCUNIT_DO_NOT_DEFINE_UNLESS_BUILDING_TESTS -DMEMTRACE -I/home/brian/github/raytracer/c/cunit/CUnit/Sources/Framework -I/home/brian/github/raytracer/c/cunit/CUnit/Sources/Test -I/home/brian/github/raytracer/c/cunit/CUnit  -Wall -Werror -Werror=strict-prototypes -o CMakeFiles/cunit_test.dir/Sources/Basic/Basic.c.o -c /home/brian/github/raytracer/c/cunit/CUnit/Sources/Basic/Basic.c",
+  "command": "/usr/bin/cc -DCUNIT_BUILD_TESTS -DCUNIT_DO_NOT_DEFINE_UNLESS_BUILDING_TESTS -DMEMTRACE -I/home/brian/github/raytracer/c/cunit/CUnit/Sources/Framework -I/home/brian/github/raytracer/c/cunit/CUnit/Sources/Test -I/home/brian/github/raytracer/c/cunit/CUnit  -Wall -Werror -Werror=strict-prototypes -g -o CMakeFiles/cunit_test.dir/Sources/Basic/Basic.c.o -c /home/brian/github/raytracer/c/cunit/CUnit/Sources/Basic/Basic.c",
   "file": "/home/brian/github/raytracer/c/cunit/CUnit/Sources/Basic/Basic.c",
   "output": "cunit/CUnit/CMakeFiles/cunit_test.dir/Sources/Basic/Basic.c.o"
 },
 {
   "directory": "/home/brian/github/raytracer/c/build/cunit/CUnit",
-  "command": "/usr/bin/cc -DCUNIT_BUILD_TESTS -DCUNIT_DO_NOT_DEFINE_UNLESS_BUILDING_TESTS -DMEMTRACE -I/home/brian/github/raytracer/c/cunit/CUnit/Sources/Framework -I/home/brian/github/raytracer/c/cunit/CUnit/Sources/Test -I/home/brian/github/raytracer/c/cunit/CUnit  -Wall -Werror -Werror=strict-prototypes -o CMakeFiles/cunit_test.dir/Sources/Automated/Automated.c.o -c /home/brian/github/raytracer/c/cunit/CUnit/Sources/Automated/Automated.c",
+  "command": "/usr/bin/cc -DCUNIT_BUILD_TESTS -DCUNIT_DO_NOT_DEFINE_UNLESS_BUILDING_TESTS -DMEMTRACE -I/home/brian/github/raytracer/c/cunit/CUnit/Sources/Framework -I/home/brian/github/raytracer/c/cunit/CUnit/Sources/Test -I/home/brian/github/raytracer/c/cunit/CUnit  -Wall -Werror -Werror=strict-prototypes -g -o CMakeFiles/cunit_test.dir/Sources/Automated/Automated.c.o -c /home/brian/github/raytracer/c/cunit/CUnit/Sources/Automated/Automated.c",
   "file": "/home/brian/github/raytracer/c/cunit/CUnit/Sources/Automated/Automated.c",
   "output": "cunit/CUnit/CMakeFiles/cunit_test.dir/Sources/Automated/Automated.c.o"
 },
 {
   "directory": "/home/brian/github/raytracer/c/build/cunit/CUnit",
-  "command": "/usr/bin/cc -DCUNIT_BUILD_TESTS -DCUNIT_DO_NOT_DEFINE_UNLESS_BUILDING_TESTS -DMEMTRACE -I/home/brian/github/raytracer/c/cunit/CUnit/Sources/Framework -I/home/brian/github/raytracer/c/cunit/CUnit/Sources/Test -I/home/brian/github/raytracer/c/cunit/CUnit  -Wall -Werror -Werror=strict-prototypes -o CMakeFiles/cunit_test.dir/Sources/Automated/AutomatedJUnitXml.c.o -c /home/brian/github/raytracer/c/cunit/CUnit/Sources/Automated/AutomatedJUnitXml.c",
+  "command": "/usr/bin/cc -DCUNIT_BUILD_TESTS -DCUNIT_DO_NOT_DEFINE_UNLESS_BUILDING_TESTS -DMEMTRACE -I/home/brian/github/raytracer/c/cunit/CUnit/Sources/Framework -I/home/brian/github/raytracer/c/cunit/CUnit/Sources/Test -I/home/brian/github/raytracer/c/cunit/CUnit  -Wall -Werror -Werror=strict-prototypes -g -o CMakeFiles/cunit_test.dir/Sources/Automated/AutomatedJUnitXml.c.o -c /home/brian/github/raytracer/c/cunit/CUnit/Sources/Automated/AutomatedJUnitXml.c",
   "file": "/home/brian/github/raytracer/c/cunit/CUnit/Sources/Automated/AutomatedJUnitXml.c",
   "output": "cunit/CUnit/CMakeFiles/cunit_test.dir/Sources/Automated/AutomatedJUnitXml.c.o"
 },
 {
   "directory": "/home/brian/github/raytracer/c/build/cunit/CUnit",
-  "command": "/usr/bin/cc -DCUNIT_BUILD_TESTS -DCUNIT_DO_NOT_DEFINE_UNLESS_BUILDING_TESTS -DMEMTRACE -I/home/brian/github/raytracer/c/cunit/CUnit/Sources/Framework -I/home/brian/github/raytracer/c/cunit/CUnit/Sources/Test -I/home/brian/github/raytracer/c/cunit/CUnit  -Wall -Werror -Werror=strict-prototypes -o CMakeFiles/cunit_test.dir/Sources/CI/CUnitCI.c.o -c /home/brian/github/raytracer/c/cunit/CUnit/Sources/CI/CUnitCI.c",
+  "command": "/usr/bin/cc -DCUNIT_BUILD_TESTS -DCUNIT_DO_NOT_DEFINE_UNLESS_BUILDING_TESTS -DMEMTRACE -I/home/brian/github/raytracer/c/cunit/CUnit/Sources/Framework -I/home/brian/github/raytracer/c/cunit/CUnit/Sources/Test -I/home/brian/github/raytracer/c/cunit/CUnit  -Wall -Werror -Werror=strict-prototypes -g -o CMakeFiles/cunit_test.dir/Sources/CI/CUnitCI.c.o -c /home/brian/github/raytracer/c/cunit/CUnit/Sources/CI/CUnitCI.c",
   "file": "/home/brian/github/raytracer/c/cunit/CUnit/Sources/CI/CUnitCI.c",
   "output": "cunit/CUnit/CMakeFiles/cunit_test.dir/Sources/CI/CUnitCI.c.o"
 },
 {
   "directory": "/home/brian/github/raytracer/c/build/cunit/CUnit",
-  "command": "/usr/bin/cc -DCUNIT_BUILD_TESTS -DCUNIT_DO_NOT_DEFINE_UNLESS_BUILDING_TESTS -DMEMTRACE -I/home/brian/github/raytracer/c/cunit/CUnit/Sources/Framework -I/home/brian/github/raytracer/c/cunit/CUnit/Sources/Test -I/home/brian/github/raytracer/c/cunit/CUnit  -Wall -Werror -Werror=strict-prototypes -o CMakeFiles/cunit_test.dir/Sources/Framework/CUError.c.o -c /home/brian/github/raytracer/c/cunit/CUnit/Sources/Framework/CUError.c",
+  "command": "/usr/bin/cc -DCUNIT_BUILD_TESTS -DCUNIT_DO_NOT_DEFINE_UNLESS_BUILDING_TESTS -DMEMTRACE -I/home/brian/github/raytracer/c/cunit/CUnit/Sources/Framework -I/home/brian/github/raytracer/c/cunit/CUnit/Sources/Test -I/home/brian/github/raytracer/c/cunit/CUnit  -Wall -Werror -Werror=strict-prototypes -g -o CMakeFiles/cunit_test.dir/Sources/Framework/CUError.c.o -c /home/brian/github/raytracer/c/cunit/CUnit/Sources/Framework/CUError.c",
   "file": "/home/brian/github/raytracer/c/cunit/CUnit/Sources/Framework/CUError.c",
   "output": "cunit/CUnit/CMakeFiles/cunit_test.dir/Sources/Framework/CUError.c.o"
 },
 {
   "directory": "/home/brian/github/raytracer/c/build/cunit/CUnit",
-  "command": "/usr/bin/cc -DCUNIT_BUILD_TESTS -DCUNIT_DO_NOT_DEFINE_UNLESS_BUILDING_TESTS -DMEMTRACE -I/home/brian/github/raytracer/c/cunit/CUnit/Sources/Framework -I/home/brian/github/raytracer/c/cunit/CUnit/Sources/Test -I/home/brian/github/raytracer/c/cunit/CUnit  -Wall -Werror -Werror=strict-prototypes -o CMakeFiles/cunit_test.dir/Sources/Framework/MessageHandlers.c.o -c /home/brian/github/raytracer/c/cunit/CUnit/Sources/Framework/MessageHandlers.c",
+  "command": "/usr/bin/cc -DCUNIT_BUILD_TESTS -DCUNIT_DO_NOT_DEFINE_UNLESS_BUILDING_TESTS -DMEMTRACE -I/home/brian/github/raytracer/c/cunit/CUnit/Sources/Framework -I/home/brian/github/raytracer/c/cunit/CUnit/Sources/Test -I/home/brian/github/raytracer/c/cunit/CUnit  -Wall -Werror -Werror=strict-prototypes -g -o CMakeFiles/cunit_test.dir/Sources/Framework/MessageHandlers.c.o -c /home/brian/github/raytracer/c/cunit/CUnit/Sources/Framework/MessageHandlers.c",
   "file": "/home/brian/github/raytracer/c/cunit/CUnit/Sources/Framework/MessageHandlers.c",
   "output": "cunit/CUnit/CMakeFiles/cunit_test.dir/Sources/Framework/MessageHandlers.c.o"
 },
 {
   "directory": "/home/brian/github/raytracer/c/build/cunit/CUnit",
-  "command": "/usr/bin/cc -DCUNIT_BUILD_TESTS -DCUNIT_DO_NOT_DEFINE_UNLESS_BUILDING_TESTS -DMEMTRACE -I/home/brian/github/raytracer/c/cunit/CUnit/Sources/Framework -I/home/brian/github/raytracer/c/cunit/CUnit/Sources/Test -I/home/brian/github/raytracer/c/cunit/CUnit  -Wall -Werror -Werror=strict-prototypes -o CMakeFiles/cunit_test.dir/Sources/Framework/MyMem.c.o -c /home/brian/github/raytracer/c/cunit/CUnit/Sources/Framework/MyMem.c",
+  "command": "/usr/bin/cc -DCUNIT_BUILD_TESTS -DCUNIT_DO_NOT_DEFINE_UNLESS_BUILDING_TESTS -DMEMTRACE -I/home/brian/github/raytracer/c/cunit/CUnit/Sources/Framework -I/home/brian/github/raytracer/c/cunit/CUnit/Sources/Test -I/home/brian/github/raytracer/c/cunit/CUnit  -Wall -Werror -Werror=strict-prototypes -g -o CMakeFiles/cunit_test.dir/Sources/Framework/MyMem.c.o -c /home/brian/github/raytracer/c/cunit/CUnit/Sources/Framework/MyMem.c",
   "file": "/home/brian/github/raytracer/c/cunit/CUnit/Sources/Framework/MyMem.c",
   "output": "cunit/CUnit/CMakeFiles/cunit_test.dir/Sources/Framework/MyMem.c.o"
 },
 {
   "directory": "/home/brian/github/raytracer/c/build/cunit/CUnit",
-  "command": "/usr/bin/cc -DCUNIT_BUILD_TESTS -DCUNIT_DO_NOT_DEFINE_UNLESS_BUILDING_TESTS -DMEMTRACE -I/home/brian/github/raytracer/c/cunit/CUnit/Sources/Framework -I/home/brian/github/raytracer/c/cunit/CUnit/Sources/Test -I/home/brian/github/raytracer/c/cunit/CUnit  -Wall -Werror -Werror=strict-prototypes -o CMakeFiles/cunit_test.dir/Sources/Framework/TestDB.c.o -c /home/brian/github/raytracer/c/cunit/CUnit/Sources/Framework/TestDB.c",
+  "command": "/usr/bin/cc -DCUNIT_BUILD_TESTS -DCUNIT_DO_NOT_DEFINE_UNLESS_BUILDING_TESTS -DMEMTRACE -I/home/brian/github/raytracer/c/cunit/CUnit/Sources/Framework -I/home/brian/github/raytracer/c/cunit/CUnit/Sources/Test -I/home/brian/github/raytracer/c/cunit/CUnit  -Wall -Werror -Werror=strict-prototypes -g -o CMakeFiles/cunit_test.dir/Sources/Framework/TestDB.c.o -c /home/brian/github/raytracer/c/cunit/CUnit/Sources/Framework/TestDB.c",
   "file": "/home/brian/github/raytracer/c/cunit/CUnit/Sources/Framework/TestDB.c",
   "output": "cunit/CUnit/CMakeFiles/cunit_test.dir/Sources/Framework/TestDB.c.o"
 },
 {
   "directory": "/home/brian/github/raytracer/c/build/cunit/CUnit",
-  "command": "/usr/bin/cc -DCUNIT_BUILD_TESTS -DCUNIT_DO_NOT_DEFINE_UNLESS_BUILDING_TESTS -DMEMTRACE -I/home/brian/github/raytracer/c/cunit/CUnit/Sources/Framework -I/home/brian/github/raytracer/c/cunit/CUnit/Sources/Test -I/home/brian/github/raytracer/c/cunit/CUnit  -Wall -Werror -Werror=strict-prototypes -o CMakeFiles/cunit_test.dir/Sources/Framework/TestFixture.c.o -c /home/brian/github/raytracer/c/cunit/CUnit/Sources/Framework/TestFixture.c",
+  "command": "/usr/bin/cc -DCUNIT_BUILD_TESTS -DCUNIT_DO_NOT_DEFINE_UNLESS_BUILDING_TESTS -DMEMTRACE -I/home/brian/github/raytracer/c/cunit/CUnit/Sources/Framework -I/home/brian/github/raytracer/c/cunit/CUnit/Sources/Test -I/home/brian/github/raytracer/c/cunit/CUnit  -Wall -Werror -Werror=strict-prototypes -g -o CMakeFiles/cunit_test.dir/Sources/Framework/TestFixture.c.o -c /home/brian/github/raytracer/c/cunit/CUnit/Sources/Framework/TestFixture.c",
   "file": "/home/brian/github/raytracer/c/cunit/CUnit/Sources/Framework/TestFixture.c",
   "output": "cunit/CUnit/CMakeFiles/cunit_test.dir/Sources/Framework/TestFixture.c.o"
 },
 {
   "directory": "/home/brian/github/raytracer/c/build/cunit/CUnit",
-  "command": "/usr/bin/cc -DCUNIT_BUILD_TESTS -DCUNIT_DO_NOT_DEFINE_UNLESS_BUILDING_TESTS -DMEMTRACE -I/home/brian/github/raytracer/c/cunit/CUnit/Sources/Framework -I/home/brian/github/raytracer/c/cunit/CUnit/Sources/Test -I/home/brian/github/raytracer/c/cunit/CUnit  -Wall -Werror -Werror=strict-prototypes -o CMakeFiles/cunit_test.dir/Sources/Framework/TestRun.c.o -c /home/brian/github/raytracer/c/cunit/CUnit/Sources/Framework/TestRun.c",
+  "command": "/usr/bin/cc -DCUNIT_BUILD_TESTS -DCUNIT_DO_NOT_DEFINE_UNLESS_BUILDING_TESTS -DMEMTRACE -I/home/brian/github/raytracer/c/cunit/CUnit/Sources/Framework -I/home/brian/github/raytracer/c/cunit/CUnit/Sources/Test -I/home/brian/github/raytracer/c/cunit/CUnit  -Wall -Werror -Werror=strict-prototypes -g -o CMakeFiles/cunit_test.dir/Sources/Framework/TestRun.c.o -c /home/brian/github/raytracer/c/cunit/CUnit/Sources/Framework/TestRun.c",
   "file": "/home/brian/github/raytracer/c/cunit/CUnit/Sources/Framework/TestRun.c",
   "output": "cunit/CUnit/CMakeFiles/cunit_test.dir/Sources/Framework/TestRun.c.o"
 },
 {
   "directory": "/home/brian/github/raytracer/c/build/cunit/CUnit",
-  "command": "/usr/bin/cc -DCUNIT_BUILD_TESTS -DCUNIT_DO_NOT_DEFINE_UNLESS_BUILDING_TESTS -DMEMTRACE -I/home/brian/github/raytracer/c/cunit/CUnit/Sources/Framework -I/home/brian/github/raytracer/c/cunit/CUnit/Sources/Test -I/home/brian/github/raytracer/c/cunit/CUnit  -Wall -Werror -Werror=strict-prototypes -o CMakeFiles/cunit_test.dir/Sources/Framework/Util.c.o -c /home/brian/github/raytracer/c/cunit/CUnit/Sources/Framework/Util.c",
+  "command": "/usr/bin/cc -DCUNIT_BUILD_TESTS -DCUNIT_DO_NOT_DEFINE_UNLESS_BUILDING_TESTS -DMEMTRACE -I/home/brian/github/raytracer/c/cunit/CUnit/Sources/Framework -I/home/brian/github/raytracer/c/cunit/CUnit/Sources/Test -I/home/brian/github/raytracer/c/cunit/CUnit  -Wall -Werror -Werror=strict-prototypes -g -o CMakeFiles/cunit_test.dir/Sources/Framework/Util.c.o -c /home/brian/github/raytracer/c/cunit/CUnit/Sources/Framework/Util.c",
   "file": "/home/brian/github/raytracer/c/cunit/CUnit/Sources/Framework/Util.c",
   "output": "cunit/CUnit/CMakeFiles/cunit_test.dir/Sources/Framework/Util.c.o"
 },
 {
   "directory": "/home/brian/github/raytracer/c/build/cunit/CUnit",
-  "command": "/usr/bin/cc -DCUNIT_BUILD_TESTS -DCUNIT_DO_NOT_DEFINE_UNLESS_BUILDING_TESTS -DMEMTRACE -I/home/brian/github/raytracer/c/cunit/CUnit/Sources/Framework -I/home/brian/github/raytracer/c/cunit/CUnit/Sources/Test -I/home/brian/github/raytracer/c/cunit/CUnit  -Wall -Werror -Werror=strict-prototypes -o CMakeFiles/cunit_test.dir/Sources/Console/Console.c.o -c /home/brian/github/raytracer/c/cunit/CUnit/Sources/Console/Console.c",
+  "command": "/usr/bin/cc -DCUNIT_BUILD_TESTS -DCUNIT_DO_NOT_DEFINE_UNLESS_BUILDING_TESTS -DMEMTRACE -I/home/brian/github/raytracer/c/cunit/CUnit/Sources/Framework -I/home/brian/github/raytracer/c/cunit/CUnit/Sources/Test -I/home/brian/github/raytracer/c/cunit/CUnit  -Wall -Werror -Werror=strict-prototypes -g -o CMakeFiles/cunit_test.dir/Sources/Console/Console.c.o -c /home/brian/github/raytracer/c/cunit/CUnit/Sources/Console/Console.c",
   "file": "/home/brian/github/raytracer/c/cunit/CUnit/Sources/Console/Console.c",
   "output": "cunit/CUnit/CMakeFiles/cunit_test.dir/Sources/Console/Console.c.o"
 },
 {
   "directory": "/home/brian/github/raytracer/c/build/cunit/CUnit",
-  "command": "/usr/bin/cc -DCUNIT_BUILD_TESTS -DCUNIT_DO_NOT_DEFINE_UNLESS_BUILDING_TESTS -DMEMTRACE -I/home/brian/github/raytracer/c/cunit/CUnit/Sources/Framework -I/home/brian/github/raytracer/c/cunit/CUnit/Sources/Test -I/home/brian/github/raytracer/c/cunit/CUnit  -Wall -Werror -Werror=strict-prototypes -o CMakeFiles/cunit_test.dir/Sources/Test/test_cunit.c.o -c /home/brian/github/raytracer/c/cunit/CUnit/Sources/Test/test_cunit.c",
+  "command": "/usr/bin/cc -DCUNIT_BUILD_TESTS -DCUNIT_DO_NOT_DEFINE_UNLESS_BUILDING_TESTS -DMEMTRACE -I/home/brian/github/raytracer/c/cunit/CUnit/Sources/Framework -I/home/brian/github/raytracer/c/cunit/CUnit/Sources/Test -I/home/brian/github/raytracer/c/cunit/CUnit  -Wall -Werror -Werror=strict-prototypes -g -o CMakeFiles/cunit_test.dir/Sources/Test/test_cunit.c.o -c /home/brian/github/raytracer/c/cunit/CUnit/Sources/Test/test_cunit.c",
   "file": "/home/brian/github/raytracer/c/cunit/CUnit/Sources/Test/test_cunit.c",
   "output": "cunit/CUnit/CMakeFiles/cunit_test.dir/Sources/Test/test_cunit.c.o"
 }
