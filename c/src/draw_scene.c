@@ -1,5 +1,6 @@
 #include <float.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 #include "color.h"
 #include "hittable.h"
@@ -12,16 +13,21 @@ typedef struct {
   double aspect_ratio; // Ratio of image width over height
   int image_width;     // Rendered image width in pixel count
   int image_height;    // Rendered image height
-  point3 center;       // Camera center
-  point3 pixel00_loc;  // Location of pixel 0, 0
-  vec3 pixel_delta_u;  // Offset to pixel to the right
-  vec3 pixel_delta_v;  // Offset to pixel below
+  int samples_per_pixel;
+  point3 center;      // Camera center
+  point3 pixel00_loc; // Location of pixel 0, 0
+  vec3 pixel_delta_u; // Offset to pixel to the right
+  vec3 pixel_delta_v; // Offset to pixel below
 } camera;
 
+static double uniform_rand() { return DIV(rand(), RAND_MAX); }
+
 void initialise_camera(camera *the_camera, int image_width,
-                       double aspect_ratio) {
+                       double aspect_ratio, int samples_per_pixel) {
   the_camera->image_width = image_width;
   the_camera->aspect_ratio = aspect_ratio;
+  the_camera->samples_per_pixel = samples_per_pixel;
+
   int image_height = image_width / aspect_ratio;
   the_camera->image_height = (image_height < 1) ? 1 : image_height;
 
@@ -66,32 +72,44 @@ color ray_color(ray *r, world *the_world) {
   return add(&blue, &gray);
 }
 
+ray get_ray(camera *the_camera, int x, int y) {
+  double jittered_x = x + uniform_rand();
+  double jittered_y = y + uniform_rand();
+  vec3 u_trans = mul(&the_camera->pixel_delta_u, jittered_x);
+  vec3 v_trans = mul(&the_camera->pixel_delta_v, jittered_y);
+
+  point3 pixel_uv = the_camera->pixel00_loc;
+  pixel_uv = add(&pixel_uv, &u_trans);
+  pixel_uv = add(&pixel_uv, &v_trans);
+
+  vec3 ray_origin = the_camera->center;
+  ray output = {ray_origin, pixel_uv};
+  return output;
+}
+
 void render(camera *the_camera, world *the_world, FILE *out) {
 
-  fprintf(out, "P3\n%d %d\n255\n", the_camera->image_width, the_camera->image_height);
-  for (int j = 0; j < the_camera->image_height; j++) {
-    for (int i = 0; i < the_camera->image_width; i++) {
-      vec3 u = mul(&the_camera->pixel_delta_u, i);
-      vec3 v = mul(&the_camera->pixel_delta_v, j);
-      point3 pixel_center = the_camera->pixel00_loc;
-      pixel_center = add(&pixel_center, &u);
-      pixel_center = add(&pixel_center, &v);
-      ray r;
-      r.origin = the_camera->center;
-      r.direction = sub(&pixel_center, &the_camera->center);
-
-      color c = ray_color(&r, the_world);
+  fprintf(out, "P3\n%d %d\n255\n", the_camera->image_width,
+          the_camera->image_height);
+  for (int j = 0; j < the_camera->image_height; ++j) {
+    for (int i = 0; i < the_camera->image_width; ++i) {
+      
+      color c = {0.0, 0.0, 0.0};
+      for(int s = 0; s < the_camera-> samples_per_pixel; ++s){
+        ray r = get_ray(the_camera, i, j);
+        color sample = ray_color(&r, the_world);
+        c = add(&c, &sample);
+      }
+      c = div_vec(&c, the_camera->samples_per_pixel);
       write_color(out, &c);
     }
   }
 }
 
-
-
 int main() {
 
   camera the_camera;
-  initialise_camera(&the_camera, 400, 16.0/9.0);
+  initialise_camera(&the_camera, 400, 16.0 / 9.0, 10);
 
   world the_world;
   init_world(&the_world, 2);
