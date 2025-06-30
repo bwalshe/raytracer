@@ -44,6 +44,28 @@ double length(vec3 *v) {
   return sqrt(length_sq(v));
 }
 
-vec3 unit_vec(vec3 *v) {
+vec3 normal_vec(vec3 *v) {
   return div_vec(v, length(v));
+}
+
+vec3 random_vec(double min, double max) {
+  return (vec3) {UNIFORM_RAND(min, max), UNIFORM_RAND(min, max), UNIFORM_RAND(min, max)};
+}
+
+vec3 random_unit_vec() {
+  for(;;) {
+    vec3 v = random_vec(-1,1);
+    double lensq = length_sq(&v);
+    if(1e-160 < lensq && lensq <= 1)
+      return div_vec(&v, sqrt(lensq));
+  }
+}
+
+
+vec3 random_on_hemisphere(vec3 *normal) {
+    vec3 on_unit_sphere = random_unit_vec();
+    if (dot(&on_unit_sphere, normal) > 0.0)
+        return on_unit_sphere;
+    else
+        return mul(&on_unit_sphere, -1.0);
 }

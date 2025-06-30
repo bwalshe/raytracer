@@ -1,15 +1,27 @@
+#include <math.h>
 #include "color.h"
 
 static double clamp(double x) {
   if(x < 0.0) return 0.0;
-  if(x > 1.0) return 1.0;
+  if(x > 0.999) return 0.999;
   return x;
 }
 
-void write_color(FILE *out, color *pixel_color) {
-  int r = 255.999 * clamp(pixel_color->x);
-  int g = 255.999 * clamp(pixel_color->y);
-  int b = 255.999 * clamp(pixel_color->z);
+static double linear_to_gamma(double linear_component) {
+  if(linear_component > 0)
+    return sqrt(linear_component);
+  return 0;
+}
 
-  fprintf(out, "%d %d %d\n", r, g, b);
+void write_color(FILE *out, color *pixel_color) {
+  double r = linear_to_gamma(pixel_color->x);
+  double g = linear_to_gamma(pixel_color->y);
+  double b = linear_to_gamma(pixel_color->z);
+
+
+  int rbyte = 256 * clamp(r);
+  int gbyte = 256 * clamp(g);
+  int bbyte = 256 * clamp(b);
+
+  fprintf(out, "%d %d %d\n", rbyte, gbyte, bbyte);
 }

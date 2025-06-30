@@ -14,19 +14,20 @@ typedef struct {
   int image_width;     // Rendered image width in pixel count
   int image_height;    // Rendered image height
   int samples_per_pixel;
+  int max_depth;
   point3 center;      // Camera center
   point3 pixel00_loc; // Location of pixel 0, 0
   vec3 pixel_delta_u; // Offset to pixel to the right
   vec3 pixel_delta_v; // Offset to pixel below
 } camera;
 
-static double uniform_rand() { return DIV(rand(), RAND_MAX); }
 
 void initialise_camera(camera *the_camera, int image_width,
                        double aspect_ratio, int samples_per_pixel) {
   the_camera->image_width = image_width;
   the_camera->aspect_ratio = aspect_ratio;
   the_camera->samples_per_pixel = samples_per_pixel;
+  the_camera->max_depth = 10;
 
   int image_height = image_width / aspect_ratio;
   the_camera->image_height = (image_height < 1) ? 1 : image_height;
@@ -56,14 +57,19 @@ void initialise_camera(camera *the_camera, int image_width,
   the_camera->pixel00_loc = add(&viewport_upper_left, &delta);
 }
 
-color ray_color(ray *r, world *the_world) {
+color ray_color(ray *r, int depth, world *the_world) {
+  if(depth <= 0)
+    return (color) {0.0, 0.0, 0.0};
   hit_record rec;
-  if (hit_world(the_world, r, 0, DBL_MAX, &rec)) {
-    color c = add(&rec.normal, &(color){1, 1, 1});
+  if (hit_world(the_world, r, 0.001, DBL_MAX, &rec)) {
+    vec3 direction = random_unit_vec();
+    direction = add(&direction, &rec.normal);
+    ray reflection = {rec.p, direction};
+    color c = ray_color(&reflection, depth - 1, the_world);
     return mul(&c, 0.5);
   }
 
-  vec3 unit_direction = unit_vec(&r->direction);
+  vec3 unit_direction = normal_vec(&r->direction);
   double a = 0.5 * (unit_direction.y + 1.0);
   color gray = {1.0, 1.0, 1.0};
   gray = mul(&gray, 1.0 - a);
@@ -73,8 +79,8 @@ color ray_color(ray *r, world *the_world) {
 }
 
 ray get_ray(camera *the_camera, int x, int y) {
-  double jittered_x = x + uniform_rand();
-  double jittered_y = y + uniform_rand();
+  double jittered_x = x + UNIT_RAND();
+  double jittered_y = y + UNIT_RAND();
   vec3 u_trans = mul(&the_camera->pixel_delta_u, jittered_x);
   vec3 v_trans = mul(&the_camera->pixel_delta_v, jittered_y);
 
@@ -97,7 +103,7 @@ void render(camera *the_camera, world *the_world, FILE *out) {
       color c = {0.0, 0.0, 0.0};
       for(int s = 0; s < the_camera-> samples_per_pixel; ++s){
         ray r = get_ray(the_camera, i, j);
-        color sample = ray_color(&r, the_world);
+        color sample = ray_color(&r, the_camera->max_depth, the_world);
         c = add(&c, &sample);
       }
       c = div_vec(&c, the_camera->samples_per_pixel);
