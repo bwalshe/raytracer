@@ -1,6 +1,7 @@
 #ifndef VEC3_H
 #define VEC3_H
 
+#include <stdbool.h>
 #include <stdlib.h>
 
 #define UNIT_RAND() (((double)rand())/RAND_MAX)
@@ -25,4 +26,6 @@ vec3 normal_vec(vec3 *v);
 vec3 random_vec(double min, double max);
 vec3 random_unit_vec();
 vec3 random_on_hemisphere(vec3 *normal);
+vec3 reflect(vec3 *v, vec3 *n);
+bool near_zero(vec3 *v);
 #endif  // VEC3_H

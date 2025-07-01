@@ -7,6 +7,7 @@ add_executable(draw_scene src/draw_scene.c
                           src/ray.c
 			  src/color.c
                           src/hittable.c
+			  src/material.c
                           src/vec3.c)
 target_link_libraries(draw_scene PRIVATE m)
 target_compile_features(draw_scene PUBLIC c_std_17)

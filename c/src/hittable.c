@@ -11,7 +11,7 @@ void init_world(world *the_world, int world_size) {
 
 void free_world(world *the_world) { free(the_world->spheres); }
 
-int add_sphere(world *the_world, double x, double y, double z, double r) {
+int add_sphere(world *the_world, double x, double y, double z, double r, void *mat) {
   if (the_world->sphere_count < the_world->max_count) {
     int i = the_world->sphere_count;
     the_world->spheres[i].center.x = x;
@@ -19,6 +19,7 @@ int add_sphere(world *the_world, double x, double y, double z, double r) {
     the_world->spheres[i].center.z = z;
     the_world->spheres[i].radius = r;
     the_world->sphere_count += 1;
+    the_world->spheres[i].mat = mat;
     return the_world->sphere_count;
   }
   return -1;
@@ -70,6 +71,7 @@ bool hit_sphere(sphere *obj, ray *r, double ray_tmin, double ray_tmax,
   vec3 outward_normal = sub(&rec->p, &obj->center);
   outward_normal = div_vec(&outward_normal, obj->radius);
   set_face_normal(rec, r, &outward_normal);
+  rec->mat = obj->mat;
 
   return true;
 }

@@ -69,3 +69,15 @@ vec3 random_on_hemisphere(vec3 *normal) {
     else
         return mul(&on_unit_sphere, -1.0);
 }
+
+vec3 reflect(vec3 *v, vec3 *n) {
+  vec3 delta = mul(n, 2 * dot(v, n));
+  return add(v, &delta);
+}
+
+bool near_zero(vec3 *v) {
+  double epsilon = 1-8;
+  return fabs(v->x) < epsilon && 
+         fabs(v->y) < epsilon &&
+         fabs(v->z) < epsilon;
+}

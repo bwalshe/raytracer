@@ -4,6 +4,7 @@
 
 #include "color.h"
 #include "hittable.h"
+#include "material.h"
 #include "ray.h"
 #include "vec3.h"
 
@@ -62,11 +63,17 @@ color ray_color(ray *r, int depth, world *the_world) {
     return (color) {0.0, 0.0, 0.0};
   hit_record rec;
   if (hit_world(the_world, r, 0.001, DBL_MAX, &rec)) {
-    vec3 direction = random_unit_vec();
-    direction = add(&direction, &rec.normal);
-    ray reflection = {rec.p, direction};
-    color c = ray_color(&reflection, depth - 1, the_world);
-    return mul(&c, 0.5);
+    ray scattered;
+    color attenuation;
+    if(scatter(rec.mat, r, &rec, &attenuation, &scattered)) {
+      color c = ray_color(&scattered, depth - 1, the_world);
+      c.x *= attenuation.x;
+      c.y *= attenuation.y;
+      c.z *= attenuation.z;
+      return c;
+
+    }
+    return (color) {0.0, 0.0, 0.0};
   }
 
   vec3 unit_direction = normal_vec(&r->direction);
@@ -120,8 +127,11 @@ int main() {
   world the_world;
   init_world(&the_world, 2);
 
-  add_sphere(&the_world, 0, 0, -1, 0.5);
-  add_sphere(&the_world, 0, -100.5, -1, 100);
+  material m1 = {METAL, {0.5, 0.5, 0.5}};
+  material m2 = {LAMBERTIAN, {0.5, 0.5, 1.0}};
+
+  add_sphere(&the_world, 0, 0, -1, 0.5, &m1);
+  add_sphere(&the_world, 0, -100.5, -1, 100, &m2);
 
   render(&the_camera, &the_world, stdout);
 
