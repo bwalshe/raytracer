@@ -9,7 +9,7 @@
 
 enum material_type { LAMBERTIAN, METAL };
 
-typedef struct {
+typedef struct material_s {
   enum material_type type;
   color albedo;
 } material;

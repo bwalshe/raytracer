@@ -1,6 +1,5 @@
 #include <float.h>
 #include <stdio.h>
-#include <stdlib.h>
 
 #include "color.h"
 #include "hittable.h"
@@ -22,9 +21,8 @@ typedef struct {
   vec3 pixel_delta_v; // Offset to pixel below
 } camera;
 
-
-void initialise_camera(camera *the_camera, int image_width,
-                       double aspect_ratio, int samples_per_pixel) {
+void initialise_camera(camera *the_camera, int image_width, double aspect_ratio,
+                       int samples_per_pixel) {
   the_camera->image_width = image_width;
   the_camera->aspect_ratio = aspect_ratio;
   the_camera->samples_per_pixel = samples_per_pixel;
@@ -59,21 +57,20 @@ void initialise_camera(camera *the_camera, int image_width,
 }
 
 color ray_color(ray *r, int depth, world *the_world) {
-  if(depth <= 0)
-    return (color) {0.0, 0.0, 0.0};
+  if (depth <= 0)
+    return (color){0.0, 0.0, 0.0};
   hit_record rec;
   if (hit_world(the_world, r, 0.001, DBL_MAX, &rec)) {
     ray scattered;
     color attenuation;
-    if(scatter(rec.mat, r, &rec, &attenuation, &scattered)) {
+    if (scatter(rec.mat, r, &rec, &attenuation, &scattered)) {
       color c = ray_color(&scattered, depth - 1, the_world);
       c.x *= attenuation.x;
       c.y *= attenuation.y;
       c.z *= attenuation.z;
       return c;
-
     }
-    return (color) {0.0, 0.0, 0.0};
+    return (color){0.0, 0.0, 0.0};
   }
 
   vec3 unit_direction = normal_vec(&r->direction);
@@ -106,9 +103,9 @@ void render(camera *the_camera, world *the_world, FILE *out) {
           the_camera->image_height);
   for (int j = 0; j < the_camera->image_height; ++j) {
     for (int i = 0; i < the_camera->image_width; ++i) {
-      
+
       color c = {0.0, 0.0, 0.0};
-      for(int s = 0; s < the_camera-> samples_per_pixel; ++s){
+      for (int s = 0; s < the_camera->samples_per_pixel; ++s) {
         ray r = get_ray(the_camera, i, j);
         color sample = ray_color(&r, the_camera->max_depth, the_world);
         c = add(&c, &sample);
@@ -125,13 +122,17 @@ int main() {
   initialise_camera(&the_camera, 400, 16.0 / 9.0, 10);
 
   world the_world;
-  init_world(&the_world, 2);
+  init_world(&the_world, 4);
 
-  material m1 = {METAL, {0.5, 0.5, 0.5}};
-  material m2 = {LAMBERTIAN, {0.5, 0.5, 1.0}};
+  material ground = {LAMBERTIAN, {0.8, 0.8, 0.0}};
+  material center = {LAMBERTIAN, {0.1, 0.2, 0.5}};
+  material left = {METAL, {0.8, 0.8, 0.8}};
+  material right = {METAL, {0.8, 0.6, 0.2}};
 
-  add_sphere(&the_world, 0, 0, -1, 0.5, &m1);
-  add_sphere(&the_world, 0, -100.5, -1, 100, &m2);
+  add_sphere(&the_world, 0.0, -100.5, -1, 100, &ground);
+  add_sphere(&the_world, 0.0, 0.0, -1.2, 0.5, &center);
+  add_sphere(&the_world, -1.0, 0.0, -1.0, 0.5, &left);
+  add_sphere(&the_world, 1.0, 0.0, -1.0, 0.5, &right);
 
   render(&the_camera, &the_world, stdout);
 

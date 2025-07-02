@@ -6,10 +6,12 @@
 
 #include "ray.h"
 
+struct material_s;
+
 typedef struct {
   point3 p;
   vec3 normal;
-  void *mat;
+  struct material_s *mat;
   double t;
   bool front_face;
 } hit_record;
@@ -17,7 +19,7 @@ typedef struct {
 typedef struct {
   point3 center;
   double radius;
-  void *mat;
+  struct material_s *mat;
 } sphere;
 
 typedef struct {
@@ -30,7 +32,7 @@ void init_world(world *the_world, int world_size);
 
 void free_world(world *the_world);
 
-int add_sphere(world *the_world, double x, double y, double z, double r, void *mat);
+int add_sphere(world *the_world, double x, double y, double z, double r, struct material_s *mat);
 
 bool hit_world(world *the_world, ray *r, double ray_tmin, double ray_tmax,
                hit_record *rec);

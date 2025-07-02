@@ -72,7 +72,7 @@ vec3 random_on_hemisphere(vec3 *normal) {
 
 vec3 reflect(vec3 *v, vec3 *n) {
   vec3 delta = mul(n, 2 * dot(v, n));
-  return add(v, &delta);
+  return sub(v, &delta);
 }
 
 bool near_zero(vec3 *v) {

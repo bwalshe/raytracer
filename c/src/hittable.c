@@ -11,7 +11,7 @@ void init_world(world *the_world, int world_size) {
 
 void free_world(world *the_world) { free(the_world->spheres); }
 
-int add_sphere(world *the_world, double x, double y, double z, double r, void *mat) {
+int add_sphere(world *the_world, double x, double y, double z, double r, struct material_s *mat) {
   if (the_world->sphere_count < the_world->max_count) {
     int i = the_world->sphere_count;
     the_world->spheres[i].center.x = x;
